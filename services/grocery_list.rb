@@ -20,7 +20,7 @@ module Services
     # @return [Cart] An instance of Cart
     #
     def add_to_cart!
-      santize
+      sanitize
       compact
       item_present!
       map_to_product_uids!
@@ -32,7 +32,7 @@ module Services
 
     attr_reader :uids
 
-    def santize
+    def sanitize
       items.gsub!(ALPHANUMERIC_COMMA_REGEX, '')
     end
 

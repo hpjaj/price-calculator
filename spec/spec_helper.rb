@@ -1,6 +1,7 @@
 require 'byebug'
 require 'awesome_print'
 require_relative '../services/compute'
+require_relative '../services/grocery_list'
 require_relative '../models/product'
 require_relative '../models/sale'
 require_relative '../models/cart'
