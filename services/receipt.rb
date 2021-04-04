@@ -72,13 +72,13 @@ module Services
 
     def set_price
       value  = item[:sales_price] || item[:regular_price]
-      @price = number_to_currency(value)
+      @price = integer_to_currency(value)
     end
 
     def print_totals
       puts
-      puts "Total price: #{number_to_currency(total)}"
-      puts "You saved #{number_to_currency(savings)} today." if savings > 0
+      puts "Total price: #{integer_to_currency(total)}"
+      puts "You saved #{integer_to_currency(savings)} today." if savings > 0
     end
   end
 end

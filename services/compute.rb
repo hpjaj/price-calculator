@@ -72,12 +72,12 @@ module Services
 
       return if sale.nil?
 
-      grouped_sales_price = ((quantity / sale.quantity) * sale.price)
-      remaining_price     = ((quantity % sale.quantity) * product.price)
+      qualifying_sales_price  = ((quantity / sale.quantity) * sale.price)
+      remaining_regular_price = ((quantity % sale.quantity) * product.price)
 
-      return if grouped_sales_price == 0
+      return if qualifying_sales_price == 0
 
-      @sales_price = grouped_sales_price + remaining_price
+      @sales_price = qualifying_sales_price + remaining_regular_price
     end
 
     def reset_sales_price

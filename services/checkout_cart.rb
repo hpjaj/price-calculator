@@ -20,7 +20,7 @@ module Services
     end
 
     def process_items
-      add_list_to_cart!
+      add_items_to_cart!
       compute_totals
       success?
     rescue ArgumentError => e
@@ -35,7 +35,7 @@ module Services
 
     attr_reader :compute
 
-    def add_list_to_cart!
+    def add_items_to_cart!
       @cart = Services::GroceryList.new(items: items, products: products).add_to_cart!
     end
 

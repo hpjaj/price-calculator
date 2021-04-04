@@ -4,7 +4,7 @@ module Helpers
       name.downcase.gsub(' ', '_')
     end
 
-    def number_to_currency(number)
+    def integer_to_currency(number)
       currency = sprintf("%.2f", (number / 100.0))
 
       "$#{currency}"
