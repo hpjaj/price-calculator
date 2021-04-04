@@ -31,10 +31,10 @@ items = gets.chomp
 #############################  Checkout Their Buggy  ##############################
 ###################################################################################
 
-cart = Services::CheckoutCart.new(products: products, sales: sales, items: items)
+checkout = Services::CheckoutCart.new(products: products, sales: sales, items: items)
 
-if cart.process_items
-  cart.provide_receipt
+if checkout.process_items
+  checkout.provide_receipt
 else
-  puts cart.error
+  puts checkout.error
 end
