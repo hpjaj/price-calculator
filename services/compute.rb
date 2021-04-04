@@ -71,10 +71,6 @@ module Services
       reset_sales_price
 
       return if sale.nil?
-
-      qualifying_sales_price  = ((quantity / sale.quantity) * sale.price)
-      remaining_regular_price = ((quantity % sale.quantity) * product.price)
-
       return if qualifying_sales_price == 0
 
       @sales_price = qualifying_sales_price + remaining_regular_price
@@ -82,6 +78,14 @@ module Services
 
     def reset_sales_price
       @sales_price = nil
+    end
+
+    def qualifying_sales_price
+      (quantity / sale.quantity) * sale.price
+    end
+
+    def remaining_regular_price
+      (quantity % sale.quantity) * product.price
     end
 
     def savings
