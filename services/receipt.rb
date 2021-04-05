@@ -4,8 +4,8 @@ module Services
   class Receipt
     include Helpers::ProductsHelper
 
-    COLUMN_1_MARGIN = 20
-    COLUMN_2_MARGIN = 15
+    COLUMN_1_WIDTH = 20
+    COLUMN_2_WIDTH = 15
 
     attr_reader :total, :savings, :items
 
@@ -27,7 +27,7 @@ module Services
 
     def print_header
       puts
-      puts "#{headers[:item].ljust(COLUMN_1_MARGIN)} #{headers[:quantity].ljust(COLUMN_2_MARGIN)} #{headers[:price]}"
+      puts "#{headers[:item].ljust(COLUMN_1_WIDTH)} #{headers[:quantity].ljust(COLUMN_2_WIDTH)} #{headers[:price]}"
       puts separator
     end
 
@@ -36,7 +36,7 @@ module Services
     end
 
     def separator
-      length = COLUMN_1_MARGIN + (COLUMN_2_MARGIN * 2)
+      length = COLUMN_1_WIDTH + (COLUMN_2_WIDTH * 2)
       line   = ''
 
       length.times { line += '-' }
@@ -47,7 +47,7 @@ module Services
       items.each do |_uid, item|
         set_attributes_for(item)
 
-        puts "#{name.ljust(COLUMN_1_MARGIN)} #{quantity.ljust(COLUMN_2_MARGIN)} #{price}"
+        puts "#{name.ljust(COLUMN_1_WIDTH)} #{quantity.ljust(COLUMN_2_WIDTH)} #{price}"
       end
     end
 
